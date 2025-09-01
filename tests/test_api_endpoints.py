@@ -13,7 +13,7 @@ import requests
 
 # Configuration
 BASE_URL = "http://localhost:8000"
-API_KEY = "your_firebase_id_token_here"  # Replace with actual Firebase ID token
+API_KEY = b'eyJhbGciOiAiUlMyNTYiLCAidHlwIjogIkpXVCIsICJraWQiOiAiNDk1NzNiY2VkNzQ0ODBiYTM3MWE4NmE3YTZkMWY5ODc2NGRiMWVkYiJ9.eyJpc3MiOiAiZmlyZWJhc2UtYWRtaW5zZGstZmJzdmNAcGVubnl3aXNlLWFiLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwgInN1YiI6ICJmaXJlYmFzZS1hZG1pbnNkay1mYnN2Y0BwZW5ueXdpc2UtYWIuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCAiYXVkIjogImh0dHBzOi8vaWRlbnRpdHl0b29sa2l0Lmdvb2dsZWFwaXMuY29tL2dvb2dsZS5pZGVudGl0eS5pZGVudGl0eXRvb2xraXQudjEuSWRlbnRpdHlUb29sa2l0IiwgInVpZCI6ICJ0ZXN0X3VzZXJfMTIzIiwgImlhdCI6IDE3NTY3NTQ4MzQsICJleHAiOiAxNzU2NzU4NDM0fQ.EsUyyQATZss_u8eabCq5urRUIGbiB47c35N4s4dCGTVoRQ4Zq84ZkUr53Tr2D9P0xlzP7pT3vTeRQgCHUkmZIjJwxC2I2fKRLjf2itZFfzuyfS5GiCy7h2aRaQIhFqVxWZR-cth6V8RyQI2Ta1Y9yDBfsnlVu-9b7UKEhkgGfZp-dQFwe9FDIxMe4ICfjd5dj98f6d2n0_sKYNpMUOpwUrYbM96zDu3x2YO6GwLKQfYxC2QXWwUqMiU3cewTmh_Es31r1SuDCF_ywJbU8_W25xWIyNiunWOQEWBIgw4vMidECOGCgWpI1XC3VinBdMKwsX_-IHCYp4rUt4MkVZz9SA' # Replace with actual Firebase ID token
 
 # Test SMS messages from different banks and credit cards
 TEST_SMS_MESSAGES = [
@@ -180,7 +180,7 @@ class APITester:
             }
             
             response = requests.post(
-                f"{self.base_url}/sms/process",
+                f"{self.base_url}/api/v1/sms/",
                 headers=self.headers,
                 json=payload
             )
@@ -248,7 +248,7 @@ Spent,250,Netflix,2025-01-14"""
             }
             
             response = requests.post(
-                f"{self.base_url}/backup/upload",
+                f"{self.base_url}/api/v1/backup/upload",
                 headers=self.headers,
                 json=payload
             )
